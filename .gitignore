@@ -1,5 +1,7 @@
 build/
 dist/
 
+gopath/
+
 .idea
 *.iml
