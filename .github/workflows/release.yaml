@@ -13,11 +13,13 @@ jobs:
 
       - name: set up golang
         uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.x
 
       - name: prepare modules
         run: make prepare
         env:
-          GOPATH: $HOME/Go
+          GOPATH: ${{ github.workspace }}/gopath
 
       - name: release
         uses: goreleaser/goreleaser-action@v1
@@ -26,4 +28,4 @@ jobs:
           args: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GOPATH: $HOME/Go
+          GOPATH: ${{ github.workspace }}/gopath
