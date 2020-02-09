@@ -5,3 +5,7 @@ build:
 .PHONY: clean
 clean:
 	rm -rf build/
+
+.PHONY: prepare
+prepare:
+	go get -u
