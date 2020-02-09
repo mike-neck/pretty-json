@@ -16,6 +16,8 @@ jobs:
 
       - name: prepare modules
         run: make prepare
+        env:
+          GOPATH: $HOME/Go
 
       - name: release
         uses: goreleaser/goreleaser-action@v1
@@ -24,3 +26,4 @@ jobs:
           args: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOPATH: $HOME/Go
